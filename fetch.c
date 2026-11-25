@@ -126,8 +126,8 @@ int get_mem_info(mem_info_t * mem) {
     return 0;
 }
 
-int read_sys_info(const char * path) {
-    FILE * fp =  open(path, "r");
+int read_sys_info(const char * path, unsigned int * value) {
+    FILE * fp =  fopen(path, "r");
 
     if(fp == NULL) {
         perror("file is not opening\n");
@@ -138,25 +138,41 @@ int read_sys_info(const char * path) {
 
     fgets(line, sizeof(line), fp);
 
+    fclose(fp);
+
     char * start = line;
     char * end;
 
     while(isspace((unsigned int) *start)) start ++;
 
-    unsigned long result = strtoul(start, &end, 10);
-
-    if(*end == '-') {
-        fprintf(stderr, "Negative values are invalid\n");
+    if(*start == '-' || *start == '\0') {
         return -1;
     }
+
+    errno = 0;
+
+    unsigned long result = strtoul(start, &end, 10);
+
+    if(*end == *start || errno == ERANGE || result > UINT_MAX) {
+        return -1;
+    }
+
+    while(isspace((unsigned int) *end)) end ++;
+
+    if(*end != '\0') {
+        return -1;
+    }
+
+    *value = result;
+
+    return 0;
 }
 int get_storage_info(storage_info_t *stg)
 {
     FILE *fp1 = NULL;
     FILE *fp2 = NULL;
     FILE *fp3 = NULL;
-    FILE *fp4 = NULL;
-    FILE *fp5 = NULL;
+
 
     int result = -1;
     char line[256];
@@ -168,10 +184,8 @@ int get_storage_info(storage_info_t *stg)
     fp1 = setmntent("/proc/mounts", "r");
     fp2 = fopen("/sys/block/nvme0n1/device/model", "r");
     fp3 = fopen("/sys/block/nvme0n1/size", "r");
-    fp4 = fopen("/sys/block/nvme0n1/queue/physical_block_size", "r");
-    fp5 = fopen("/sys/block/nvme0n1/queue/logical_block_size", "r");
 
-    if (fp1 == NULL || fp2 == NULL || fp3 == NULL || fp4 == NULL || fp5 == NULL) {
+    if (fp1 == NULL || fp2 == NULL || fp3 == NULL) {
         perror("Opening storage interfaces");
         goto cleanup;
     }
@@ -296,19 +310,21 @@ int get_storage_info(storage_info_t *stg)
 
     stg->capacity = (double)((long double)bytesTotal / conversion);
 
-    if (fgets(line, sizeof(line), fp4) == NULL) {
-        fprintf(stderr, "Unable to read sector count\n");
-        goto cleanup;
+    unsigned int value = 0;
+
+    if(read_sys_info("/sys/block/nvme0n1/queue/physical_block_size", &value) == -1) {
+        fprintf(stderr, "some error happen\n");
+        return -1;
     }
 
-    stg -> physical_block_size = strtoul(line, &end, 10);
+    stg -> physical_block_size = value;
 
-    if (fgets(line, sizeof(line), fp5) == NULL) {
-        fprintf(stderr, "Unable to read sector count\n");
-        goto cleanup;
+    if(read_sys_info("/sys/block/nvme0n1/queue/logical_block_size", &value) == -1) {
+        fprintf(stderr, "some error happen\n");
+        return -1;
     }
 
-    stg -> logical_block_size = strtoul(line, &end, 10);
+    stg -> logical_block_size = value;
 
     result = 0;
 
@@ -322,12 +338,6 @@ cleanup:
 
     if (fp3 != NULL)
         fclose(fp3);
-
-    if (fp4 != NULL)
-        fclose(fp4);
-
-    if (fp5 != NULL)
-        fclose(fp5);
 
     if (result != 0) {
         free(stg->model);
@@ -376,7 +386,7 @@ void displayInfoStorage(storage_info_t * nvme) {
 int main(void) {
     cpu_info_t cpu[11];
     mem_info_t mem;
-    storage_info_t nvme;
+    storage_info_t nvme = {0};
 
     get_cpu_info(cpu);
     get_mem_info(&mem);
