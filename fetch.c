@@ -126,7 +126,7 @@ int get_mem_info(mem_info_t * mem) {
     return 0;
 }
 
-int read_sys_info(const char * path, unsigned int * value) {
+int read_sysblock_info(const char * path, unsigned int * value) {
     FILE * fp =  fopen(path, "r");
 
     if(fp == NULL) {
@@ -312,14 +312,14 @@ int get_storage_info(storage_info_t *stg)
 
     unsigned int value = 0;
 
-    if(read_sys_info("/sys/block/nvme0n1/queue/physical_block_size", &value) == -1) {
+    if(read_sysblock_info("/sys/block/nvme0n1/queue/physical_block_size", &value) == -1) {
         fprintf(stderr, "some error happen\n");
         return -1;
     }
 
     stg -> physical_block_size = value;
 
-    if(read_sys_info("/sys/block/nvme0n1/queue/logical_block_size", &value) == -1) {
+    if(read_sysblock_info("/sys/block/nvme0n1/queue/logical_block_size", &value) == -1) {
         fprintf(stderr, "some error happen\n");
         return -1;
     }
