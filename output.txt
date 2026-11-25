@@ -1,0 +1,300 @@
+==================================
+Name : /dev/nvme0n1p6
+Type : btrfs
+Dir Name : /
+Total : 168.00
+Free : 131.74
+Available : 129.87
+Used : 36.26
+Usage : 21.58
+
+==================================
+Name : devtmpfs
+Type : devtmpfs
+Dir Name : /dev
+Total : 7.51
+Free : 7.51
+Available : 7.51
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : tmpfs
+Type : tmpfs
+Dir Name : /dev/shm
+Total : 7.66
+Free : 7.62
+Available : 7.62
+Used : 0.04
+Usage : 0.47
+
+==================================
+Name : devpts
+Type : devpts
+Dir Name : /dev/pts
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : sysfs
+Type : sysfs
+Dir Name : /sys
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : securityfs
+Type : securityfs
+Dir Name : /sys/kernel/security
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : cgroup2
+Type : cgroup2
+Dir Name : /sys/fs/cgroup
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : none
+Type : pstore
+Dir Name : /sys/fs/pstore
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : efivarfs
+Type : efivarfs
+Dir Name : /sys/firmware/efi/efivars
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 60.72
+
+==================================
+Name : bpf
+Type : bpf
+Dir Name : /sys/fs/bpf
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : configfs
+Type : configfs
+Dir Name : /sys/kernel/config
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : proc
+Type : proc
+Dir Name : /proc
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : tmpfs
+Type : tmpfs
+Dir Name : /run
+Total : 3.06
+Free : 3.06
+Available : 3.06
+Used : 0.00
+Usage : 0.08
+
+==================================
+Name : selinuxfs
+Type : selinuxfs
+Dir Name : /sys/fs/selinux
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : systemd-1
+Type : autofs
+Dir Name : /proc/sys/fs/binfmt_misc
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : tracefs
+Type : tracefs
+Dir Name : /sys/kernel/tracing
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : mqueue
+Type : mqueue
+Dir Name : /dev/mqueue
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : debugfs
+Type : debugfs
+Dir Name : /sys/kernel/debug
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : hugetlbfs
+Type : hugetlbfs
+Dir Name : /dev/hugepages
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : fusectl
+Type : fusectl
+Dir Name : /sys/fs/fuse/connections
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : none
+Type : tmpfs
+Dir Name : /run/credentials/systemd-journald.service
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : none
+Type : tmpfs
+Dir Name : /run/credentials/systemd-resolved.service
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : tmpfs
+Type : tmpfs
+Dir Name : /tmp
+Total : 7.66
+Free : 7.65
+Available : 7.65
+Used : 0.01
+Usage : 0.13
+
+==================================
+Name : /dev/nvme0n1p6
+Type : btrfs
+Dir Name : /home
+Total : 168.00
+Free : 131.74
+Available : 129.87
+Used : 36.26
+Usage : 21.58
+
+==================================
+Name : /dev/nvme0n1p5
+Type : ext4
+Dir Name : /boot
+Total : 1.90
+Free : 1.26
+Available : 1.15
+Used : 0.64
+Usage : 33.58
+
+==================================
+Name : /dev/nvme0n1p1
+Type : vfat
+Dir Name : /boot/efi
+Total : 0.25
+Free : 0.19
+Available : 0.19
+Used : 0.06
+Usage : 24.87
+
+==================================
+Name : sunrpc
+Type : rpc_pipefs
+Dir Name : /var/lib/nfs/rpc_pipefs
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : binfmt_misc
+Type : binfmt_misc
+Dir Name : /proc/sys/fs/binfmt_misc
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+
+==================================
+Name : tmpfs
+Type : tmpfs
+Dir Name : /run/user/1000
+Total : 1.53
+Free : 1.53
+Available : 1.53
+Used : 0.00
+Usage : 0.01
+
+==================================
+Name : portal
+Type : fuse.portal
+Dir Name : /run/user/1000/doc
+Total : 0.00
+Free : 0.00
+Available : 0.00
+Used : 0.00
+Usage : 0.00
+mnt succeed
